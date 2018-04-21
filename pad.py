@@ -141,10 +141,11 @@ if __name__ == '__main__':
 		elif len(local_pad_data) > len(pad_data):
 			print('Server: Updating server copy (+{} entries)...'.format(len(local_pad_data)-len(pad_data)))
 			sheetsaccess.update_sheet(sheet, local_pad_data)
+			pad_data = local_pad_data
 			print('Server: Success')
 		else:
-			print('Client: Everything up-to-date')
 			pad_data = local_pad_data
+			print('Client: Everything up-to-date')
 	else:
 		print('Client: Accessing local copy')
 		pad_data = local_load()
